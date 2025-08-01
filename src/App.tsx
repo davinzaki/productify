@@ -1,9 +1,9 @@
 import { Route, Routes } from 'react-router-dom'
 import './App.css'
 import DashboardLayout from './layouts/DashboardLayout'
-import ProductPage from './components/ProductPage'
 import DashboardPage from './components/DashboardPage'
 import { ThemeProvider } from './components/ThemeProvider'
+import ProductPage from './pages/products/ProductPage'
 
 function App() {
 
