@@ -5,6 +5,9 @@ import { ThemeProvider } from './components/ThemeProvider'
 import ProductPage from './pages/products/ProductPage'
 import DashboardPage from './pages/dashboard/DashboardPage'
 import { SidebarProvider } from './components/ui/sidebar'
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+
+const queryClient = new QueryClient()
 
 function App() {
   const router = createBrowserRouter(
@@ -17,11 +20,13 @@ function App() {
   )
 
   return (
-    <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
-      <SidebarProvider>
-        <RouterProvider router={router} />
-      </SidebarProvider>
-    </ThemeProvider>
+    <QueryClientProvider client={queryClient}>
+      <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
+        <SidebarProvider>
+          <RouterProvider router={router} />
+        </SidebarProvider>
+      </ThemeProvider>
+    </QueryClientProvider>
   )
 }
 
