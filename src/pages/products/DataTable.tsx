@@ -1,11 +1,4 @@
 import {
-  type ColumnDef,
-  flexRender,
-  getCoreRowModel,
-  useReactTable,
-} from "@tanstack/react-table"
-
-import {
   Table,
   TableBody,
   TableCell,
@@ -14,20 +7,27 @@ import {
   TableRow,
 } from "@/components/ui/table"
 
+import {
+  type ColumnDef,
+  flexRender,
+  getCoreRowModel,
+  useReactTable,
+} from "@tanstack/react-table"
+
+// Generic Type, allows every type in components
 interface DataTableProps<TData, TValue> {
-  columns: ColumnDef<TData, TValue>[]
+  columns: ColumnDef<TData, TValue>[],
   data: TData[]
 }
 
-export function DataTable<TData, TValue>({
-  columns,
-  data,
-}: DataTableProps<TData, TValue>) {
+const DataTable = <TData, TValue>({ columns, data }: DataTableProps<TData, TValue>) => {
   const table = useReactTable({
     data,
     columns,
-    getCoreRowModel: getCoreRowModel(),
+    getCoreRowModel: getCoreRowModel()
   })
+
+  console.log('table', table)
 
   return (
     <div className="overflow-hidden rounded-md border">
@@ -76,3 +76,5 @@ export function DataTable<TData, TValue>({
     </div>
   )
 }
+
+export default DataTable

@@ -1,4 +1,6 @@
+import { Button } from "@/components/ui/button"
 import type { ColumnDef } from "@tanstack/react-table"
+import { ArrowUpDown } from "lucide-react"
 
 
 export type Product = {
@@ -11,7 +13,17 @@ export type Product = {
 export const columns: ColumnDef<Product>[] = [
     {
         accessorKey: "name",
-        header: "Name",
+        header: ({ column }) => {
+            return (
+                <Button variant="ghost" onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}>
+                    Name
+                    <ArrowUpDown />
+                </Button>
+            )
+        },
+        cell: ({ row }) =>
+            <div className="text-start">{row.getValue('name')}</div>
+
     },
     {
         accessorKey: "price",
