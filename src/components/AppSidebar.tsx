@@ -25,9 +25,9 @@ const items = [
   },
 ]
 
-export function AppSidebar() {
+const AppSidebar = () => {
   return (
-    <Sidebar>
+    <Sidebar collapsible="icon">
       <SidebarContent>
         <SidebarGroup>
           <SidebarGroupLabel>Productify</SidebarGroupLabel>
@@ -53,3 +53,5 @@ export function AppSidebar() {
     </Sidebar>
   )
 }
+
+export default AppSidebar

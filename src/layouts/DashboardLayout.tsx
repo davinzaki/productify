@@ -1,15 +1,15 @@
-import { AppSidebar } from "@/components/AppSidebar"
-import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar"
+import AppSidebar from "@/components/AppSidebar"
+import { SidebarTrigger } from "@/components/ui/sidebar"
 import { Outlet } from "react-router-dom"
 
 export default function DashboardLayout() {
     return (
-        <SidebarProvider>
+        <>
             <AppSidebar />
-            <main>
-                <SidebarTrigger className="flex-1" />
+            <main className="p-2 w-full">
+                <SidebarTrigger />
                 <Outlet />
             </main>
-        </SidebarProvider>
+        </>
     )
 }
