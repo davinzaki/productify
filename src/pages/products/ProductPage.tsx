@@ -1,5 +1,5 @@
+import DataTable from "@/components/DataTable";
 import { columns, type Product } from "./Columns"
-import DataTable from "./DataTable";
 import SkeletonTableBasic from "@/components/SkeletonTableBasic";
 import { useQuery } from "@tanstack/react-query";
 
@@ -12,15 +12,23 @@ export const ProductPage = () => {
         queryKey: ['products'],
         queryFn: async (): Promise<Product[]> => {
             const res = await fetch('http://localhost:3000/products')
+
             return res.json()
+
             // fetch('http://localhost:3000/products').then((res) => {
             //     res.json()
             // })
-        }        // queryFn: async () => {
+
+
+        },
+        // refetchOnWindowFocus: false
+
+        // queryFn: async () => {
         //     const res = await fetch('http://localhost:3000/products')
         //     return await res.json()
         // }
     })
+
 
     // useEffect(() => {
 

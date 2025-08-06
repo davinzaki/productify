@@ -9,7 +9,7 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@/components/ui/sidebar"
-import { LayoutDashboard, PackageSearch } from "lucide-react"
+import { LayoutDashboard, LayoutList, PackageSearch } from "lucide-react"
 import { ModeToggle } from "./ModeToggle"
 
 const items = [
@@ -22,6 +22,11 @@ const items = [
     title: "Products",
     url: "/products",
     icon: PackageSearch,
+  },
+  {
+    title: "Product Categories",
+    url: "/product-categories",
+    icon: LayoutList,
   },
 ]
 

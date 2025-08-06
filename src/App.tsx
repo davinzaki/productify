@@ -6,8 +6,17 @@ import ProductPage from './pages/products/ProductPage'
 import DashboardPage from './pages/dashboard/DashboardPage'
 import { SidebarProvider } from './components/ui/sidebar'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import ProductCategoryPage from './pages/product-categories/ProductCategoryPage'
 
-const queryClient = new QueryClient()
+const queryClient = new QueryClient(
+  //   {
+  //   defaultOptions: {
+  //     queries: {
+  //       refetchOnWindowFocus: false //auto hit when focus on window 
+  //     }
+  //   }
+  // }
+)
 
 function App() {
   const router = createBrowserRouter(
@@ -15,6 +24,7 @@ function App() {
       <Route path='/' element={<DashboardLayout />}>
         <Route index element={<DashboardPage />} />
         <Route path="products" element={<ProductPage />} />
+        <Route path="product-categories" element={<ProductCategoryPage />} />
       </Route>
     )
   )
