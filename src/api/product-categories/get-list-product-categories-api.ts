@@ -11,7 +11,7 @@ export const getListProductCategoriesApiHandler = async (): Promise<
 };
 
 export const useGetListProductCategories = () => {
-  return useQuery({
+  return useQuery<ProductCategory[]>({
     queryKey: ["product-categories"],
     queryFn: getListProductCategoriesApiHandler,
   });
