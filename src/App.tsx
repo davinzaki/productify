@@ -7,6 +7,7 @@ import DashboardPage from './pages/dashboard/DashboardPage'
 import { SidebarProvider } from './components/ui/sidebar'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import ProductCategoryPage from './pages/product-categories/ProductCategoryPage'
+import { Toaster } from 'sonner'
 
 const queryClient = new QueryClient(
   //   {
@@ -34,6 +35,7 @@ function App() {
       <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
         <SidebarProvider>
           <RouterProvider router={router} />
+          <Toaster />
         </SidebarProvider>
       </ThemeProvider>
     </QueryClientProvider>

@@ -27,8 +27,6 @@ const DataTable = <TData, TValue>({ columns, data }: DataTableProps<TData, TValu
         getCoreRowModel: getCoreRowModel()
     })
 
-    console.log('table', table)
-
     return (
         <div className="overflow-hidden rounded-md border">
             <Table>

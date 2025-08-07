@@ -23,4 +23,7 @@ export const columns: ColumnDef<ProductCategory>[] = [
             <div className="text-start">{row.getValue('name')}</div>
 
     },
+    {
+        id: 'action'
+    }
 ]
