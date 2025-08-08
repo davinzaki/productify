@@ -1,4 +1,3 @@
-import DataTable from "@/components/DataTable";
 import { columns } from "./Columns"
 import SkeletonTableBasic from "@/components/SkeletonTableBasic";
 import { Label } from "@/components/ui/label";
@@ -11,6 +10,7 @@ import { toast } from "sonner";
 import { useCreateProductCategory } from "@/api/product-categories/create-product-category-api";
 import { useGetListProductCategories } from "@/api/product-categories/get-list-product-categories-api";
 import { useQueryClient } from "@tanstack/react-query";
+import DataTable from "./DataTable";
 
 const ProductCategoryPage = () => {
     const { data: productCategories, isLoading, error } = useGetListProductCategories()

@@ -1,4 +1,3 @@
-import DataTable from "@/components/DataTable";
 import { columns } from "./Columns"
 import SkeletonTableBasic from "@/components/SkeletonTableBasic";
 import { useGetListProducts } from "@/api/products/get-list-products-api";
@@ -30,6 +29,7 @@ import {
     PopoverContent,
     PopoverTrigger,
 } from "@/components/ui/popover"
+import DataTable from "./DataTable";
 
 export const ProductPage = () => {
     const queryClient = useQueryClient()
@@ -163,8 +163,6 @@ export const ProductPage = () => {
                         <Button type="submit" disabled={isPending} >Save</Button>
                     </form>
                 </Form>
-
-
                 {isLoading ? <SkeletonTableBasic /> : <DataTable columns={columns} data={products ?? []} />}
             </div>
         </div>
