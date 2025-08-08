@@ -73,7 +73,7 @@ const ProductCategoryPage = () => {
         <div className="w-full">
             <div className="flex flex-col gap-5">
                 <h1>Product Categories</h1>
-                <form onSubmit={onSubmit} className="space-y-6">
+                {/* <form onSubmit={onSubmit} className="space-y-6">
                     <div className="flex flex-col gap-2">
                         <div className="grid w-full max-w-sm items-center gap-3">
                             <Label htmlFor="name">Name</Label>
@@ -81,7 +81,7 @@ const ProductCategoryPage = () => {
                         </div>
                     </div>
                     <Button type="submit" disabled={isPending} >Save</Button>
-                </form>
+                </form> */}
                 {isLoading ? <SkeletonTableBasic /> : <DataTable columns={columns} data={productCategories ?? []} />}
 
                 {/* <Input type="text" value={inputValue} onChange={(e) => setInputValue(e.target.value)} />
