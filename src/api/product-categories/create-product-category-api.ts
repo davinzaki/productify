@@ -1,11 +1,8 @@
 import { http } from "@/lib/axios";
+import type { ProductCategoryEntity } from "@/types/entities/product-category.entity";
 import type { CreateProductCategoryValidatorType } from "@/validators/product-categories/create-product-category-validator";
 import { useMutation, type UseMutationOptions } from "@tanstack/react-query";
 
-interface CreateProductCategoryApiResponse {
-  id: number;
-  name: string;
-}
 interface CreateProductCategoryApiBody {
   name: string;
 }
@@ -20,7 +17,7 @@ export const createProductCategoryApiHandler = async ({
 
 export const useCreateProductCategory = (
   options?: UseMutationOptions<
-    CreateProductCategoryApiResponse,
+    ProductCategoryEntity,
     Error,
     CreateProductCategoryValidatorType
   >

@@ -3,14 +3,9 @@ import { Button } from "@/components/ui/button"
 import type { ColumnDef } from "@tanstack/react-table"
 import { ArrowUpDown } from "lucide-react"
 import DataTableRowActions from "./DataTableRowActions"
+import type { ProductCategoryEntity } from "@/types/entities/product-category.entity"
 
-
-export type ProductCategory = {
-    id: number
-    name: string
-}
-
-export const columns: ColumnDef<ProductCategory>[] = [
+export const columns: ColumnDef<ProductCategoryEntity>[] = [
     {
         accessorKey: "name",
         header: ({ column }) => {
