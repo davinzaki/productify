@@ -10,9 +10,11 @@ import { useQueryClient } from "@tanstack/react-query"
 import { CreateProductCategoryValidator, type CreateProductCategoryValidatorType } from "@/validators/product-categories/create-product-category-validator"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { toast } from "sonner"
+import { useState } from "react"
 
 const CreateProduct = () => {
     const queryClient = useQueryClient()
+    const [open, setOpen] = useState(false);
 
     const { register, handleSubmit, reset } = useForm<CreateProductCategoryValidatorType>({
         defaultValues: {
@@ -28,6 +30,7 @@ const CreateProduct = () => {
             queryClient.invalidateQueries({ queryKey: ['product-categories'] })
             reset();
             toast('Data saved succesfully!')
+            setOpen(false)
         },
         onError: () => {
             reset();
@@ -46,7 +49,7 @@ const CreateProduct = () => {
     }
 
     return (
-        <Dialog>
+        <Dialog open={open} onOpenChange={setOpen}>
             <DialogTrigger asChild>
                 <Button size="sm" className="cursor-pointer"> <Plus /> Add</Button>
             </DialogTrigger>
