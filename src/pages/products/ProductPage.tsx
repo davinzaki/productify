@@ -1,5 +1,5 @@
 import { columns } from "./Columns"
-import SkeletonTableBasic from "@/components/SkeletonTableBasic";
+import SkeletonTableBasic from "@/components/shared/SkeletonTableBasic";
 import { useGetListProducts } from "@/api/products/get-list-products-api";
 import { useCreateProduct } from "@/api/products/create-product-api";
 import { useForm } from "react-hook-form";
@@ -63,9 +63,18 @@ export const ProductPage = () => {
 
     return (
 
-        <div className="w-full">
-            <div className="flex flex-col gap-2">
-                <h1>Products</h1>
+        <>
+            <div className="w-full h-full flex-1 flex-col gap-8 p-8 md:flex">
+                <div className="flex items-center justify-between gap-2">
+                    <div className="flex flex-col gap-1">
+                        <h2 className="text-2xl font-semibold tracking-tight">
+                            Products
+                        </h2>
+                        <p className="text-muted-foreground">
+                            Here&apos;s a list of products.
+                        </p>
+                    </div>
+                </div>
                 <Form {...form}>
 
                     <form onSubmit={onSubmit} className="space-y-6">
@@ -165,7 +174,7 @@ export const ProductPage = () => {
                 </Form>
                 {isLoading ? <SkeletonTableBasic /> : <DataTable columns={columns} data={products ?? []} />}
             </div>
-        </div>
+        </>
     )
 }
 

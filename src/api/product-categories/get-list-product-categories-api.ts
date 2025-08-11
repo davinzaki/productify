@@ -1,5 +1,5 @@
 import { http } from "@/lib/axios";
-import type { ProductCategory } from "@/pages/product-categories/Columns";
+import type { ProductCategory } from "@/components/features/product-categories/Columns";
 import { useQuery } from "@tanstack/react-query";
 
 export const getListProductCategoriesApiHandler = async (): Promise<
