@@ -1,5 +1,5 @@
 import { http } from "@/lib/axios";
-import type { Product } from "@/pages/products/Columns";
+import type { Product } from "@/components/features/products/Columns";
 import { useQuery } from "@tanstack/react-query";
 
 export const getListProductsApiHandler = async (): Promise<Product[]> => {

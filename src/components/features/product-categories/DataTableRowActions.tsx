@@ -13,13 +13,13 @@ interface DataTableRowActionsProps {
 
 const DataTableRowActions = ({ row }: DataTableRowActionsProps) => {
     const [productCategory, setProductCategory] = useState<ProductCategoryEntity | null>(null)
-    const [productCategoryEdit, setProductCategoryEdit] = useState(false)
-    const [productCategoryDelete, setProductCategoryDelete] = useState(false)
+    const [editProductCategory, setEditProductCategory] = useState(false)
+    const [deleteProductCategory, setDeleteProductCategory] = useState(false)
 
     return (
         <>
-            <EditProductCategoryModal open={productCategoryEdit} onOpenChange={setProductCategoryEdit} productCategory={productCategory || null} />
-            <DeleteProductCategoryModal open={productCategoryDelete} onOpenChange={setProductCategoryDelete} productCategoryId={productCategory?.id || null} />
+            <EditProductCategoryModal open={editProductCategory} onOpenChange={setEditProductCategory} productCategory={productCategory || null} />
+            <DeleteProductCategoryModal open={deleteProductCategory} onOpenChange={setDeleteProductCategory} productCategoryId={productCategory?.id || null} />
 
             <DropdownMenu>
                 <DropdownMenuTrigger asChild>
@@ -35,14 +35,14 @@ const DataTableRowActions = ({ row }: DataTableRowActionsProps) => {
                 <DropdownMenuContent align="end" className="w-[160px]">
                     <DropdownMenuItem onClick={() => {
                         setProductCategory(row.original)
-                        setProductCategoryDelete(true)
+                        setDeleteProductCategory(true)
                     }}>
                         <Trash />
                         Delete
                     </DropdownMenuItem>
                     <DropdownMenuItem onClick={() => {
                         setProductCategory(row.original)
-                        setProductCategoryEdit(true)
+                        setEditProductCategory(true)
                     }}>
                         < Edit /> Edit
                     </DropdownMenuItem>

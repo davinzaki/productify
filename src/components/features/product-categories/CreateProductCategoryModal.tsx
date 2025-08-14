@@ -12,7 +12,7 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import { toast } from "sonner"
 import { useState } from "react"
 
-const CreateProduct = () => {
+const CreateProductCategoryModal = () => {
     const queryClient = useQueryClient()
     const [open, setOpen] = useState(false);
 
@@ -79,4 +79,4 @@ const CreateProduct = () => {
     )
 }
 
-export default CreateProduct
+export default CreateProductCategoryModal

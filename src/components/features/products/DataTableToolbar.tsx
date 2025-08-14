@@ -1,5 +1,5 @@
 import type { Table } from '@tanstack/react-table'
-import CreateProduct from './CreateProductCategoryModal'
+import CreateProductModal from './CreateProductModal'
 
 interface DataTableToolbarProps<TData> {
     table: Table<TData>
@@ -12,7 +12,7 @@ export function DataTableToolbar<TData>({
     return (
         <div className="flex items-center justify-end">
             <div className="flex items-end gap-2">
-                <CreateProduct />
+                <CreateProductModal />
             </div>
         </div>
     )

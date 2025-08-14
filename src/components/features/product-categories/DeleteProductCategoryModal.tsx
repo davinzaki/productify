@@ -1,8 +1,7 @@
-import { DialogDescription, DialogFooter, DialogHeader } from "@/components/ui/dialog"
-import { Dialog, DialogClose, DialogContent, DialogTitle } from "@/components/ui/dialog"
+import { Dialog, DialogClose, DialogContent, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog"
 import { Button } from "@/components/ui/button"
 import { useDeleteProductCategory } from "@/api/product-categories/delete-product-category-api"
-import type { DialogProps } from "@radix-ui/react-dialog"
+import { DialogDescription, type DialogProps } from "@radix-ui/react-dialog"
 import { useQueryClient } from "@tanstack/react-query"
 import { toast } from "sonner"
 
