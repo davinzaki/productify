@@ -29,6 +29,8 @@ import { useGetListProductCategories } from "@/api/product-categories/get-list-p
 import { useQueryClient } from "@tanstack/react-query";
 import { Check, ChevronsUpDown } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useEditProduct } from "@/api/products/edit-product-api";
+import { toast } from "sonner";
 
 interface Props extends DialogProps {
   product?: ProductEntity | null
@@ -37,6 +39,18 @@ interface Props extends DialogProps {
 const EditProductModal = ({ product, onOpenChange, ...props }: Props) => {
   const queryClient = useQueryClient()
   const { data: productCategories } = useGetListProductCategories()
+  const { mutate: editProduct } = useEditProduct({
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['products'] })
+      form.reset();
+      toast('Data updated succesfully!')
+      onOpenChange?.(false)
+    },
+    onError: () => {
+      form.reset();
+      toast('Data failed to update!')
+    },
+  })
   const form = useForm({
     defaultValues: {
       name: '',
@@ -61,7 +75,7 @@ const EditProductModal = ({ product, onOpenChange, ...props }: Props) => {
   }, [product, form])
 
   const onSubmit = form.handleSubmit((data) => {
-    console.log(data)
+    editProduct({ id: product?.id as number, ...data })
   })
 
   return (
@@ -171,7 +185,7 @@ const EditProductModal = ({ product, onOpenChange, ...props }: Props) => {
               <DialogClose asChild>
                 <Button className="cursor-pointer" type="button" variant="outline">Cancel</Button>
               </DialogClose>
-              <Button className="cursor-pointer" type="submit" >Save</Button>
+              <Button className="cursor-pointer" type="submit" >Edit</Button>
             </DialogFooter>
           </form>
         </Form>
